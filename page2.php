@@ -63,6 +63,24 @@
 	$photo_select_html .= '<option value="' .$i .'">' .$all_photos[$i] ."</option> /n";
 	}
 	$photo_select_html .= "</select>"
+	
+	$photo_select_html = 'select name"photo_select">' ."\n";
+	$photo_select_html .= '<option value ="0">valige pilt</option>' . "\n";
+	for($i = 0; $i < $limit; $i ++) {
+		$1 = $i + 1;
+		$photo_select_html .= '<option value"' .'">' .$photo_files[$i] ."</option> \n";
+	}
+	$photo_select_html .= '</select><input type="submit" name="picture_choice_input" value="Vali">';
+	if(isset($_POST['picture_choice_input'])){
+		if(!empty($_POST['photo_select']));
+		var_dump($_POST);
+		$pic_choice_num -= 1;
+		$pic_choice_file = $photo_files[$pic_choice_num];
+		$pic_choice_html = '<img src="' . $photo_dir . $pic_choice_file . '"alt="see on lahe pilt 6unast">';
+		echo $pic_choice_html;
+	}else{
+		$picture_choice_error = "valige mõni teine pilt palun!";
+	}
 	?>
 
 <!DOCTYPE html>
